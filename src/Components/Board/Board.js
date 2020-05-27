@@ -10,30 +10,25 @@ import fellowship from '../../img/fellowships.png'
         const intialBoard = Array(9).fill(null)
         const [squares, setSquares] = useState(intialBoard)
         const [playerXIsNext, setPlayerXIsNext] = useState(true)
-        
+
     const renderSquare = (i) => {
         return <Square  value={squares[i]} onClick={() => handleCLick(i)} />
     }
-​
     const handleCLick = (i) => {
         const newSquares = [...squares]
         const winnerDeclared = Boolean(calculateWinner(squares))
         const squareAlreadyFilled = Boolean(newSquares[i])
         if (winnerDeclared || squareAlreadyFilled) return
 newSquares[i] = playerXIsNext ? "X" : "O"
-​
         setSquares(newSquares)
         setPlayerXIsNext(!playerXIsNext)
     }
-
     const isBoardFull = (squares) =>{
         for(let i = 0; i< squares.length; i++)
         if(squares[i] == null){
             return false
         }
     }
-​
-​
     const calculateWinner = (squares) => {
         /* Squares indexes as they appear in UI:
         0 1 2
@@ -55,14 +50,11 @@ newSquares[i] = playerXIsNext ? "X" : "O"
         const [a, b, c] = line;
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]){
             return squares[a]
-        }
-        
+        }   
     }
     return null
     }
-​
     const winner = calculateWinner(squares);
-​
     const getStatus = () => {
         if (winner) {
             return "Congrats player " + winner + " for winning!";
@@ -70,7 +62,6 @@ newSquares[i] = playerXIsNext ? "X" : "O"
             return "Next player is player" + (playerXIsNext ? "X" : "O")
         }
     }
-​
     return (
         <>
             <main className="main--container">
