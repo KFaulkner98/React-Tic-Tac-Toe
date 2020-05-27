@@ -10,7 +10,7 @@ import fellowship from '../../img/fellowships.png'
         const intialBoard = Array(9).fill(null)
         const [squares, setSquares] = useState(intialBoard)
         const [playerXIsNext, setPlayerXIsNext] = useState(true)
-​
+        
     const renderSquare = (i) => {
         return <Square  value={squares[i]} onClick={() => handleCLick(i)} />
     }
