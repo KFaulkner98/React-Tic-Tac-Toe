@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Square from '../Square/Square';
 import r2h from '../../img/r2h.png'
 import fellowship from '../../img/fellowships.png'
-​
-​
-​
-​
+
+
+
+
     const Board = () => {
         const intialBoard = Array(9).fill(null)
         const [squares, setSquares] = useState(intialBoard)
